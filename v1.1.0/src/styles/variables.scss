@@ -1,0 +1,266 @@
+/**
+ * LomUI 2.0.0 - CSS变量定义
+ * 定义全局CSS变量，用于统一控制颜色、字体、间距等样式属性
+ */
+
+// ===== 颜色系统 =====
+
+// 主色调
+$primary-color: #165DFF;
+$primary-hover: #4080FF;
+$primary-active: #0E42D2;
+$primary-light: #E8F3FF;
+$primary-dark: #0A2463;
+
+// 辅助色
+$success-color: #00B42A;
+$success-hover: #36D399;
+$success-active: #008744;
+$success-light: #F0FFF4;
+
+$warning-color: #FF7D00;
+$warning-hover: #FFAB00;
+$warning-active: #D46B08;
+$warning-light: #FFFBE6;
+
+$error-color: #F53F3F;
+$error-hover: #FF4D4F;
+$error-active: #CF1322;
+$error-light: #FFF2F0;
+
+$info-color: #86909C;
+$info-hover: #4E5969;
+$info-active: #1D2129;
+$info-light: #F2F3F5;
+
+// 文本颜色
+$text-primary: #1D2129;
+$text-secondary: #4E5969;
+$text-tertiary: #86909C;
+$text-disabled: #C9CDD4;
+$text-placeholder: #86909C;
+
+// 背景颜色
+$bg-primary: #FFFFFF;
+$bg-secondary: #F2F3F5;
+$bg-tertiary: #E5E6EB;
+$bg-disabled: #F7F8FA;
+$bg-hover: #F7F8FA;
+$bg-active: #E5E6EB;
+
+// 边框颜色
+$border-color: #E5E6EB;
+$border-light: #F2F3F5;
+$border-dark: #C9CDD4;
+$border-focus: #4080FF;
+
+// ===== 尺寸系统 =====
+
+// 间距单位
+$spacing-unit: 4px;
+
+// 间距尺寸
+$spacing-0: $spacing-unit * 0; // 0px
+$spacing-1: $spacing-unit * 1; // 4px
+$spacing-2: $spacing-unit * 2; // 8px
+$spacing-3: $spacing-unit * 3; // 12px
+$spacing-4: $spacing-unit * 4; // 16px
+$spacing-5: $spacing-unit * 5; // 20px
+$spacing-6: $spacing-unit * 6; // 24px
+$spacing-7: $spacing-unit * 7; // 28px
+$spacing-8: $spacing-unit * 8; // 32px
+$spacing-9: $spacing-unit * 9; // 36px
+$spacing-10: $spacing-unit * 10; // 40px
+$spacing-12: $spacing-unit * 12; // 48px
+$spacing-16: $spacing-unit * 16; // 64px
+$spacing-20: $spacing-unit * 20; // 80px
+
+// 圆角尺寸
+$radius-sm: 4px;
+$radius-md: 6px;
+$radius-lg: 8px;
+$radius-xl: 12px;
+$radius-full: 9999px;
+
+// 边框宽度
+$border-width: 1px;
+$border-width-light: 1px;
+$border-width-dark: 2px;
+
+// 阴影
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+$shadow-md: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+$shadow-lg: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 8px 16px 0 rgba(0, 0, 0, 0.15);
+$shadow-focus: 0 0 0 2px rgba(22, 93, 255, 0.2);
+
+// ===== 字体系统 =====
+
+// 字体族
+$font-family-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+
+// 字体大小
+$font-size-xs: 12px;
+$font-size-sm: 13px;
+$font-size-base: 14px;
+$font-size-lg: 16px;
+$font-size-xl: 18px;
+$font-size-2xl: 20px;
+$font-size-3xl: 24px;
+$font-size-4xl: 28px;
+$font-size-5xl: 32px;
+
+// 字体粗细
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// 行高
+$line-height-sm: 1.2;
+$line-height-base: 1.5;
+$line-height-lg: 1.8;
+$line-height-xl: 2;
+
+// ===== 过渡动画 =====
+
+// 过渡时间
+$transition-fast: 0.1s;
+$transition-normal: 0.2s;
+$transition-slow: 0.3s;
+$transition-long: 0.5s;
+
+// 过渡函数
+$transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+$transition-ease: ease;
+$transition-ease-in: ease-in;
+$transition-ease-out: ease-out;
+$transition-ease-in-out: ease-in-out;
+
+// ===== 组件尺寸 =====
+
+// 按钮高度
+$btn-height-xs: 24px;
+$btn-height-sm: 28px;
+$btn-height-base: 32px;
+$btn-height-lg: 40px;
+
+// 输入框高度
+$input-height-xs: 24px;
+$input-height-sm: 28px;
+$input-height-base: 32px;
+$input-height-lg: 40px;
+
+// 选择框高度
+$select-height-xs: 24px;
+$select-height-sm: 28px;
+$select-height-base: 32px;
+$select-height-lg: 40px;
+
+// 导航高度
+$nav-height: 44px;
+
+// Tab高度
+$tab-height: 32px;
+$tab-large-height: 40px;
+
+// 弹窗尺寸
+$popup-min-width: 280px;
+$popup-max-width: 500px;
+$popup-header-height: 48px;
+$popup-footer-height: 48px;
+$popup-close-size: 32px;
+
+// ===== Z-index 层级 =====
+
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// ===== 响应式断点 =====
+
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-2xl: 1400px;
+
+// 媒体查询混合器
+@mixin media-xs {
+  @media (min-width: #{$breakpoint-xs}) {
+    @content;
+  }
+}
+
+@mixin media-sm {
+  @media (min-width: #{$breakpoint-sm}) {
+    @content;
+  }
+}
+
+@mixin media-md {
+  @media (min-width: #{$breakpoint-md}) {
+    @content;
+  }
+}
+
+@mixin media-lg {
+  @media (min-width: #{$breakpoint-lg}) {
+    @content;
+  }
+}
+
+@mixin media-xl {
+  @media (min-width: #{$breakpoint-xl}) {
+    @content;
+  }
+}
+
+@mixin media-2xl {
+  @media (min-width: #{$breakpoint-2xl}) {
+    @content;
+  }
+}
+
+@mixin media-max-xs {
+  @media (max-width: #{$breakpoint-xs - 1}) {
+    @content;
+  }
+}
+
+@mixin media-max-sm {
+  @media (max-width: #{$breakpoint-sm - 1}) {
+    @content;
+  }
+}
+
+@mixin media-max-md {
+  @media (max-width: #{$breakpoint-md - 1}) {
+    @content;
+  }
+}
+
+@mixin media-max-lg {
+  @media (max-width: #{$breakpoint-lg - 1}) {
+    @content;
+  }
+}
+
+@mixin media-max-xl {
+  @media (max-width: #{$breakpoint-xl - 1}) {
+    @content;
+  }
+}
+
+@mixin media-max-2xl {
+  @media (max-width: #{$breakpoint-2xl - 1}) {
+    @content;
+  }
+}

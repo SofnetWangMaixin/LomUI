@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LomUI 2.0.0 - 示例</title>
+  <!-- 引入LomUI样式 -->
+  <link rel="stylesheet" href="dist/lomui.min.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f7f8fa;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .section {
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e5e6eb;
+    }
+    .section:last-child {
+      border-bottom: none;
+    }
+    h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: 600;
+      color: #1d2129;
+    }
+    .demo-box {
+      background-color: #fafafa;
+      padding: 20px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      border: 1px solid #e5e6eb;
+    }
+    .demo-code {
+      background-color: #f6f8fa;
+      padding: 15px;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 13px;
+      overflow-x: auto;
+      border: 1px solid #e5e6eb;
+    }
+    .demo-title {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 15px;
+      color: #1d2129;
+    }
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>LomUI 2.0.0 - 现代UI框架示例</h1>
+    
+    <!-- 按钮示例 -->
+    <div class="section">
+      <h2>按钮组件 (Button)</h2>
+      <div class="demo-box">
+        <div class="demo-title">基础按钮</div>
+        <div class="btn-group">
+          <button class="lomui-button">默认按钮</button>
+          <button class="lomui-button lomui-button--primary">主按钮</button>
+          <button class="lomui-button lomui-button--success">成功按钮</button>
+          <button class="lomui-button lomui-button--warning">警告按钮</button>
+          <button class="lomui-button lomui-button--error">错误按钮</button>
+          <button class="lomui-button lomui-button--link">链接按钮</button>
+        </div>
+      </div>
+      <div class="demo-box">
+        <div class="demo-title">尺寸按钮</div>
+        <div class="btn-group">
+          <button class="lomui-button lomui-button--lg">大号按钮</button>
+          <button class="lomui-button">默认按钮</button>
+          <button class="lomui-button lomui-button--sm">小号按钮</button>
+          <button class="lomui-button lomui-button--xs">超小按钮</button>
+        </div>
+      </div>
+      <div class="demo-box">
+        <div class="demo-title">形状按钮</div>
+        <div class="btn-group">
+          <button class="lomui-button lomui-button--radius">圆角按钮</button>
+          <button class="lomui-button lomui-button--circle">O</button>
+          <button class="lomui-button lomui-button--fluid">流体按钮</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 输入框示例 -->
+    <div class="section">
+      <h2>输入框组件 (Input)</h2>
+      <div class="demo-box">
+        <div class="demo-title">基础输入框</div>
+        <input type="text" class="lomui-input" placeholder="请输入内容" style="max-width: 300px; margin-bottom: 10px;">
+        <input type="password" class="lomui-input" placeholder="请输入密码" style="max-width: 300px;">
+      </div>
+      <div class="demo-box">
+        <div class="demo-title">尺寸输入框</div>
+        <input type="text" class="lomui-input lomui-input--lg" placeholder="大号输入框" style="max-width: 300px; margin-bottom: 10px;">
+        <input type="text" class="lomui-input" placeholder="默认输入框" style="max-width: 300px; margin-bottom: 10px;">
+        <input type="text" class="lomui-input lomui-input--sm" placeholder="小号输入框" style="max-width: 300px;">
+      </div>
+      <div class="demo-box">
+        <div class="demo-title">状态输入框</div>
+        <input type="text" class="lomui-input lomui-input--success" placeholder="成功状态" style="max-width: 300px; margin-bottom: 10px;">
+        <input type="text" class="lomui-input lomui-input--error" placeholder="错误状态" style="max-width: 300px;">
+      </div>
+    </div>
+
+    <!-- 选择框示例 -->
+    <div class="section">
+      <h2>选择框组件 (Select)</h2>
+      <div class="demo-box">
+        <div class="demo-title">基础选择框</div>
+        <select class="lomui-select" style="max-width: 300px;">
+          <option value="1">选项一</option>
+          <option value="2">选项二</option>
+          <option value="3">选项三</option>
+          <option value="4">选项四</option>
+        </select>
+      </div>
+      <div class="demo-box">
+        <div class="demo-title">尺寸选择框</div>
+        <select class="lomui-select lomui-select--lg" style="max-width: 300px; margin-bottom: 10px;">
+          <option value="1">大号选择框</option>
+          <option value="2">选项二</option>
+        </select>
+        <select class="lomui-select lomui-select--sm" style="max-width: 300px;">
+          <option value="1">小号选择框</option>
+          <option value="2">选项二</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- 导航示例 -->
+    <div class="section">
+      <h2>导航组件 (Nav)</h2>
+      <div class="demo-box">
+        <div class="demo-title">水平导航</div>
+        <nav class="lomui-nav">
+          <a href="#" class="lomui-nav__item lomui-nav__item--active">首页</a>
+          <a href="#" class="lomui-nav__item">产品</a>
+          <a href="#" class="lomui-nav__item">服务</a>
+          <a href="#" class="lomui-nav__item">关于我们</a>
+          <a href="#" class="lomui-nav__item">联系我们</a>
+        </nav>
+      </div>
+      <div class="demo-box">
+        <div class="demo-title">垂直导航</div>
+        <nav class="lomui-nav lomui-nav--vertical" style="width: 200px;">
+          <a href="#" class="lomui-nav__item lomui-nav__item--active">首页</a>
+          <a href="#" class="lomui-nav__item">产品</a>
+          <a href="#" class="lomui-nav__item">服务</a>
+          <a href="#" class="lomui-nav__item">关于我们</a>
+          <a href="#" class="lomui-nav__item">联系我们</a>
+        </nav>
+      </div>
+      <div class="demo-box">
+        <div class="demo-title">主色调导航</div>
+        <nav class="lomui-nav lomui-nav--primary">
+          <a href="#" class="lomui-nav__item lomui-nav__item--active">首页</a>
+          <a href="#" class="lomui-nav__item">产品</a>
+          <a href="#" class="lomui-nav__item">服务</a>
+          <a href="#" class="lomui-nav__item">关于我们</a>
+          <a href="#" class="lomui-nav__item">联系我们</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Tab示例 -->
+    <div class="section">
+      <h2>Tab组件</h2>
+      <div class="demo-box">
+        <div class="demo-title">基础Tab</div>
+        <div class="lomui-tab-container">
+          <ul class="lomui-tab">
+            <li class="lomui-tab__title lomui-tab__title--active">Tab 1</li>
+            <li class="lomui-tab__title">Tab 2</li>
+            <li class="lomui-tab__title">Tab 3</li>
+          </ul>
+          <div class="lomui-tab__content-container">
+            <div class="lomui-tab__content lomui-tab__content--active">Tab 1 内容</div>
+            <div class="lomui-tab__content">Tab 2 内容</div>
+            <div class="lomui-tab__content">Tab 3 内容</div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-box">
+        <div class="demo-title">简洁Tab</div>
+        <div class="lomui-tab-container lomui-tab-container--simple">
+          <ul class="lomui-tab">
+            <li class="lomui-tab__title lomui-tab__title--active">Tab 1</li>
+            <li class="lomui-tab__title">Tab 2</li>
+            <li class="lomui-tab__title">Tab 3</li>
+          </ul>
+          <div class="lomui-tab__content-container">
+            <div class="lomui-tab__content lomui-tab__content--active">简洁Tab 1 内容</div>
+            <div class="lomui-tab__content">简洁Tab 2 内容</div>
+            <div class="lomui-tab__content">简洁Tab 3 内容</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 弹窗示例 -->
+    <div class="section">
+      <h2>弹窗组件 (Popup)</h2>
+      <div class="demo-box">
+        <div class="demo-title">消息弹窗</div>
+        <button id="show-msg" class="lomui-button lomui-button--primary">显示消息</button>
+        <button id="show-success" class="lomui-button lomui-button--success">显示成功消息</button>
+        <button id="show-error" class="lomui-button lomui-button--error">显示错误消息</button>
+        <button id="show-warning" class="lomui-button lomui-button--warning">显示警告消息</button>
+        <button id="show-confirm" class="lomui-button">显示确认框</button>
+      </div>
+    </div>
+
+    <!-- 工具类示例 -->
+    <div class="section">
+      <h2>工具类</h2>
+      <div class="demo-box">
+        <div class="demo-title">颜色工具类</div>
+        <span class="lomui-text-primary">主文本</span> | 
+        <span class="lomui-text-secondary">次要文本</span> | 
+        <span class="lomui-text-tertiary">辅助文本</span> | 
+        <span class="lomui-text-success">成功文本</span> | 
+        <span class="lomui-text-warning">警告文本</span> | 
+        <span class="lomui-text-error">错误文本</span>
+      </div>
+      <div class="demo-box">
+        <div class="demo-title">背景颜色工具类</div>
+        <span class="lomui-bg-primary lomui-p-2 lomui-radius-md">主背景</span> | 
+        <span class="lomui-bg-secondary lomui-p-2 lomui-radius-md">次要背景</span> | 
+        <span class="lomui-bg-tertiary lomui-p-2 lomui-radius-md">辅助背景</span> | 
+        <span class="lomui-bg-success lomui-p-2 lomui-radius-md">成功背景</span> | 
+        <span class="lomui-bg-warning lomui-p-2 lomui-radius-md">警告背景</span> | 
+        <span class="lomui-bg-error lomui-p-2 lomui-radius-md">错误背景</span>
+      </div>
+      <div class="demo-box">
+        <div class="demo-title">布局工具类</div>
+        <div class="lomui-flex lomui-justify-between lomui-p-3 lomui-bg-secondary lomui-radius-md">
+          <div>左侧</div>
+          <div>右侧</div>
+        </div>
+        <div class="lomui-flex lomui-justify-center lomui-p-3 lomui-bg-secondary lomui-radius-md lomui-mt-2">
+          <div>居中内容</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 引入LomUI脚本 -->
+  <script src="dist/lomui.min.js"></script>
+  <script>
+    // 初始化LomUI
+    document.addEventListener('DOMContentLoaded', function() {
+      // 初始化框架
+      LomUI.init();
+      
+      // 绑定弹窗示例事件
+      document.getElementById('show-msg').addEventListener('click', function() {
+        LomUI.popup.msg('这是一条提示消息');
+      });
+      
+      document.getElementById('show-success').addEventListener('click', function() {
+        LomUI.popup.success('操作成功');
+      });
+      
+      document.getElementById('show-error').addEventListener('click', function() {
+        LomUI.popup.error('操作失败');
+      });
+      
+      document.getElementById('show-warning').addEventListener('click', function() {
+        LomUI.popup.warning('警告信息');
+      });
+      
+      document.getElementById('show-confirm').addEventListener('click', function() {
+        LomUI.popup.confirm({
+          title: '确认操作',
+          content: '您确定要执行此操作吗？',
+          confirmText: '确定',
+          cancelText: '取消',
+          onConfirm: function() {
+            LomUI.popup.success('操作已确认');
+          },
+          onCancel: function() {
+            LomUI.popup.msg('操作已取消');
+          }
+        });
+      });
+      
+      // Tab切换示例
+      const tabTitles = document.querySelectorAll('.lomui-tab__title');
+      tabTitles.forEach(title => {
+        title.addEventListener('click', function() {
+          // 获取父容器
+          const container = this.closest('.lomui-tab-container');
+          const tabList = container.querySelector('.lomui-tab');
+          const contentContainer = container.querySelector('.lomui-tab__content-container');
+          
+          // 获取所有tab标题和内容
+          const titles = tabList.querySelectorAll('.lomui-tab__title');
+          const contents = contentContainer.querySelectorAll('.lomui-tab__content');
+          
+          // 找到当前点击的索引
+          const index = Array.from(titles).indexOf(this);
+          
+          // 更新激活状态
+          titles.forEach((t, i) => {
+            t.classList.toggle('lomui-tab__title--active', i === index);
+          });
+          
+          contents.forEach((c, i) => {
+            c.classList.toggle('lomui-tab__content--active', i === index);
+          });
+        });
+      });
+      
+      // JavaScript API创建组件示例
+      // 创建按钮
+      const btnContainer = document.createElement('div');
+      btnContainer.className = 'demo-box';
+      const btnTitle = document.createElement('div');
+      btnTitle.className = 'demo-title';
+      btnTitle.textContent = 'JavaScript API创建的按钮';
+      btnContainer.appendChild(btnTitle);
+      
+      const jsBtn = LomUI.button.create({
+        text: 'API创建的按钮',
+        type: 'primary',
+        size: 'lg',
+        onClick: function() {
+          LomUI.popup.info('这是通过API创建的按钮');
+        }
+      });
+      btnContainer.appendChild(jsBtn);
+      
+      // 添加到按钮示例区域
+      document.querySelector('.section:nth-child(2)').appendChild(btnContainer);
+      
+      // 创建输入框
+      const inputContainer = document.createElement('div');
+      inputContainer.className = 'demo-box';
+      const inputTitle = document.createElement('div');
+      inputTitle.className = 'demo-title';
+      inputTitle.textContent = 'JavaScript API创建的输入框';
+      inputContainer.appendChild(inputTitle);
+      
+      const jsInput = LomUI.input.create({
+        placeholder: '请输入内容',
+        style: 'max-width: 300px;',
+        onInput: function(value) {
+          console.log('输入内容:', value);
+        }
+      });
+      inputContainer.appendChild(jsInput);
+      
+      // 添加到输入框示例区域
+      document.querySelector('.section:nth-child(3)').appendChild(inputContainer);
+    });
+  </script>
+</body>
+</html>

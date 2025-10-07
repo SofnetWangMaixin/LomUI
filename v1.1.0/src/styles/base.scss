@@ -1,0 +1,711 @@
+/**
+ * LomUI 2.0.0 - 基础样式
+ * 包含基础重置样式、公共样式和工具类
+ */
+
+// 导入变量文件
+@import './variables.scss';
+
+// ===== CSS重置和基础设置 =====
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  line-height: $line-height-base;
+  font-size: $font-size-base;
+}
+
+body {
+  font-family: $font-family-sans;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $text-primary;
+  background-color: $bg-primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// 移除列表样式
+ul, ol {
+  list-style: none;
+}
+
+// 移除链接默认样式
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color $transition-normal $transition-timing;
+
+  &:hover {
+    color: $primary-hover;
+  }
+
+  &:active {
+    color: $primary-active;
+  }
+}
+
+// ===== 表单元素基础样式 =====
+
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  transition: all $transition-normal $transition-timing;
+}
+
+button {
+  cursor: pointer;
+  user-select: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+input[type="search"],
+textarea,
+select {
+  width: 100%;
+  padding: $spacing-3 $spacing-4;
+  background-color: $bg-primary;
+  border: $border-width solid $border-color;
+  border-radius: $radius-md;
+  transition: all $transition-normal $transition-timing;
+
+  &:focus {
+    border-color: $border-focus;
+    box-shadow: $shadow-focus;
+  }
+
+  &:disabled {
+    background-color: $bg-disabled;
+    color: $text-disabled;
+    border-color: $border-light;
+    cursor: not-allowed;
+  }
+
+  &::placeholder {
+    color: $text-placeholder;
+  }
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+// ===== 工具类 =====
+
+// 显示/隐藏
+.lomui-hidden {
+  display: none !important;
+}
+
+.lomui-visible {
+  display: block !important;
+}
+
+// 定位
+.lomui-fixed {
+  position: fixed !important;
+}
+
+.lomui-absolute {
+  position: absolute !important;
+}
+
+.lomui-relative {
+  position: relative !important;
+}
+
+.lomui-static {
+  position: static !important;
+}
+
+// 文本对齐
+.lomui-text-left {
+  text-align: left !important;
+}
+
+.lomui-text-center {
+  text-align: center !important;
+}
+
+.lomui-text-right {
+  text-align: right !important;
+}
+
+.lomui-text-justify {
+  text-align: justify !important;
+}
+
+// 文本大小
+.lomui-text-xs {
+  font-size: $font-size-xs !important;
+}
+
+.lomui-text-sm {
+  font-size: $font-size-sm !important;
+}
+
+.lomui-text-base {
+  font-size: $font-size-base !important;
+}
+
+.lomui-text-lg {
+  font-size: $font-size-lg !important;
+}
+
+.lomui-text-xl {
+  font-size: $font-size-xl !important;
+}
+
+// 文本粗细
+.lomui-font-light {
+  font-weight: $font-weight-light !important;
+}
+
+.lomui-font-normal {
+  font-weight: $font-weight-normal !important;
+}
+
+.lomui-font-medium {
+  font-weight: $font-weight-medium !important;
+}
+
+.lomui-font-semibold {
+  font-weight: $font-weight-semibold !important;
+}
+
+.lomui-font-bold {
+  font-weight: $font-weight-bold !important;
+}
+
+// 文本颜色
+.lomui-text-primary {
+  color: $text-primary !important;
+}
+
+.lomui-text-secondary {
+  color: $text-secondary !important;
+}
+
+.lomui-text-tertiary {
+  color: $text-tertiary !important;
+}
+
+.lomui-text-success {
+  color: $success-color !important;
+}
+
+.lomui-text-warning {
+  color: $warning-color !important;
+}
+
+.lomui-text-error {
+  color: $error-color !important;
+}
+
+.lomui-text-primary-color {
+  color: $primary-color !important;
+}
+
+// 背景颜色
+.lomui-bg-primary {
+  background-color: $bg-primary !important;
+}
+
+.lomui-bg-secondary {
+  background-color: $bg-secondary !important;
+}
+
+.lomui-bg-tertiary {
+  background-color: $bg-tertiary !important;
+}
+
+.lomui-bg-success {
+  background-color: $success-light !important;
+}
+
+.lomui-bg-warning {
+  background-color: $warning-light !important;
+}
+
+.lomui-bg-error {
+  background-color: $error-light !important;
+}
+
+.lomui-bg-primary-color {
+  background-color: $primary-light !important;
+}
+
+// 圆角
+.lomui-radius-sm {
+  border-radius: $radius-sm !important;
+}
+
+.lomui-radius-md {
+  border-radius: $radius-md !important;
+}
+
+.lomui-radius-lg {
+  border-radius: $radius-lg !important;
+}
+
+.lomui-radius-xl {
+  border-radius: $radius-xl !important;
+}
+
+.lomui-radius-full {
+  border-radius: $radius-full !important;
+}
+
+// 间距 - 外边距
+.lomui-m-0 {
+  margin: $spacing-0 !important;
+}
+
+.lomui-m-1 {
+  margin: $spacing-1 !important;
+}
+
+.lomui-m-2 {
+  margin: $spacing-2 !important;
+}
+
+.lomui-m-3 {
+  margin: $spacing-3 !important;
+}
+
+.lomui-m-4 {
+  margin: $spacing-4 !important;
+}
+
+.lomui-m-5 {
+  margin: $spacing-5 !important;
+}
+
+.lomui-m-6 {
+  margin: $spacing-6 !important;
+}
+
+.lomui-mt-0 {
+  margin-top: $spacing-0 !important;
+}
+
+.lomui-mt-1 {
+  margin-top: $spacing-1 !important;
+}
+
+.lomui-mt-2 {
+  margin-top: $spacing-2 !important;
+}
+
+.lomui-mt-3 {
+  margin-top: $spacing-3 !important;
+}
+
+.lomui-mt-4 {
+  margin-top: $spacing-4 !important;
+}
+
+.lomui-mt-5 {
+  margin-top: $spacing-5 !important;
+}
+
+.lomui-mt-6 {
+  margin-top: $spacing-6 !important;
+}
+
+.lomui-mb-0 {
+  margin-bottom: $spacing-0 !important;
+}
+
+.lomui-mb-1 {
+  margin-bottom: $spacing-1 !important;
+}
+
+.lomui-mb-2 {
+  margin-bottom: $spacing-2 !important;
+}
+
+.lomui-mb-3 {
+  margin-bottom: $spacing-3 !important;
+}
+
+.lomui-mb-4 {
+  margin-bottom: $spacing-4 !important;
+}
+
+.lomui-mb-5 {
+  margin-bottom: $spacing-5 !important;
+}
+
+.lomui-mb-6 {
+  margin-bottom: $spacing-6 !important;
+}
+
+.lomui-ml-0 {
+  margin-left: $spacing-0 !important;
+}
+
+.lomui-ml-1 {
+  margin-left: $spacing-1 !important;
+}
+
+.lomui-ml-2 {
+  margin-left: $spacing-2 !important;
+}
+
+.lomui-ml-3 {
+  margin-left: $spacing-3 !important;
+}
+
+.lomui-ml-4 {
+  margin-left: $spacing-4 !important;
+}
+
+.lomui-ml-5 {
+  margin-left: $spacing-5 !important;
+}
+
+.lomui-ml-6 {
+  margin-left: $spacing-6 !important;
+}
+
+.lomui-mr-0 {
+  margin-right: $spacing-0 !important;
+}
+
+.lomui-mr-1 {
+  margin-right: $spacing-1 !important;
+}
+
+.lomui-mr-2 {
+  margin-right: $spacing-2 !important;
+}
+
+.lomui-mr-3 {
+  margin-right: $spacing-3 !important;
+}
+
+.lomui-mr-4 {
+  margin-right: $spacing-4 !important;
+}
+
+.lomui-mr-5 {
+  margin-right: $spacing-5 !important;
+}
+
+.lomui-mr-6 {
+  margin-right: $spacing-6 !important;
+}
+
+// 间距 - 内边距
+.lomui-p-0 {
+  padding: $spacing-0 !important;
+}
+
+.lomui-p-1 {
+  padding: $spacing-1 !important;
+}
+
+.lomui-p-2 {
+  padding: $spacing-2 !important;
+}
+
+.lomui-p-3 {
+  padding: $spacing-3 !important;
+}
+
+.lomui-p-4 {
+  padding: $spacing-4 !important;
+}
+
+.lomui-p-5 {
+  padding: $spacing-5 !important;
+}
+
+.lomui-p-6 {
+  padding: $spacing-6 !important;
+}
+
+.lomui-pt-0 {
+  padding-top: $spacing-0 !important;
+}
+
+.lomui-pt-1 {
+  padding-top: $spacing-1 !important;
+}
+
+.lomui-pt-2 {
+  padding-top: $spacing-2 !important;
+}
+
+.lomui-pt-3 {
+  padding-top: $spacing-3 !important;
+}
+
+.lomui-pt-4 {
+  padding-top: $spacing-4 !important;
+}
+
+.lomui-pt-5 {
+  padding-top: $spacing-5 !important;
+}
+
+.lomui-pt-6 {
+  padding-top: $spacing-6 !important;
+}
+
+.lomui-pb-0 {
+  padding-bottom: $spacing-0 !important;
+}
+
+.lomui-pb-1 {
+  padding-bottom: $spacing-1 !important;
+}
+
+.lomui-pb-2 {
+  padding-bottom: $spacing-2 !important;
+}
+
+.lomui-pb-3 {
+  padding-bottom: $spacing-3 !important;
+}
+
+.lomui-pb-4 {
+  padding-bottom: $spacing-4 !important;
+}
+
+.lomui-pb-5 {
+  padding-bottom: $spacing-5 !important;
+}
+
+.lomui-pb-6 {
+  padding-bottom: $spacing-6 !important;
+}
+
+.lomui-pl-0 {
+  padding-left: $spacing-0 !important;
+}
+
+.lomui-pl-1 {
+  padding-left: $spacing-1 !important;
+}
+
+.lomui-pl-2 {
+  padding-left: $spacing-2 !important;
+}
+
+.lomui-pl-3 {
+  padding-left: $spacing-3 !important;
+}
+
+.lomui-pl-4 {
+  padding-left: $spacing-4 !important;
+}
+
+.lomui-pl-5 {
+  padding-left: $spacing-5 !important;
+}
+
+.lomui-pl-6 {
+  padding-left: $spacing-6 !important;
+}
+
+.lomui-pr-0 {
+  padding-right: $spacing-0 !important;
+}
+
+.lomui-pr-1 {
+  padding-right: $spacing-1 !important;
+}
+
+.lomui-pr-2 {
+  padding-right: $spacing-2 !important;
+}
+
+.lomui-pr-3 {
+  padding-right: $spacing-3 !important;
+}
+
+.lomui-pr-4 {
+  padding-right: $spacing-4 !important;
+}
+
+.lomui-pr-5 {
+  padding-right: $spacing-5 !important;
+}
+
+.lomui-pr-6 {
+  padding-right: $spacing-6 !important;
+}
+
+// 弹性布局
+.lomui-flex {
+  display: flex !important;
+}
+
+.lomui-inline-flex {
+  display: inline-flex !important;
+}
+
+.lomui-flex-row {
+  flex-direction: row !important;
+}
+
+.lomui-flex-column {
+  flex-direction: column !important;
+}
+
+.lomui-flex-wrap {
+  flex-wrap: wrap !important;
+}
+
+.lomui-flex-nowrap {
+  flex-wrap: nowrap !important;
+}
+
+.lomui-justify-start {
+  justify-content: flex-start !important;
+}
+
+.lomui-justify-end {
+  justify-content: flex-end !important;
+}
+
+.lomui-justify-center {
+  justify-content: center !important;
+}
+
+.lomui-justify-between {
+  justify-content: space-between !important;
+}
+
+.lomui-justify-around {
+  justify-content: space-around !important;
+}
+
+.lomui-align-start {
+  align-items: flex-start !important;
+}
+
+.lomui-align-end {
+  align-items: flex-end !important;
+}
+
+.lomui-align-center {
+  align-items: center !important;
+}
+
+.lomui-align-baseline {
+  align-items: baseline !important;
+}
+
+.lomui-align-stretch {
+  align-items: stretch !important;
+}
+
+.lomui-flex-1 {
+  flex: 1 !important;
+}
+
+.lomui-flex-auto {
+  flex: auto !important;
+}
+
+.lomui-flex-none {
+  flex: none !important;
+}
+
+// 鼠标指针
+.lomui-pointer {
+  cursor: pointer !important;
+}
+
+.lomui-not-allowed {
+  cursor: not-allowed !important;
+}
+
+// 溢出处理
+.lomui-overflow-hidden {
+  overflow: hidden !important;
+}
+
+.lomui-overflow-auto {
+  overflow: auto !important;
+}
+
+.lomui-overflow-scroll {
+  overflow: scroll !important;
+}
+
+.lomui-overflow-visible {
+  overflow: visible !important;
+}
+
+// 文本溢出
+.lomui-text-truncate {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+// 边框
+.lomui-border {
+  border: $border-width solid $border-color !important;
+}
+
+.lomui-border-top {
+  border-top: $border-width solid $border-color !important;
+}
+
+.lomui-border-right {
+  border-right: $border-width solid $border-color !important;
+}
+
+.lomui-border-bottom {
+  border-bottom: $border-width solid $border-color !important;
+}
+
+.lomui-border-left {
+  border-left: $border-width solid $border-color !important;
+}
+
+.lomui-border-success {
+  border-color: $success-color !important;
+}
+
+.lomui-border-warning {
+  border-color: $warning-color !important;
+}
+
+.lomui-border-error {
+  border-color: $error-color !important;
+}
+
+.lomui-border-primary {
+  border-color: $primary-color !important;
+}
+
+.lomui-border-none {
+  border: none !important;
+}

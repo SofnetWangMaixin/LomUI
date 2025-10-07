@@ -1,0 +1,338 @@
+/**
+ * LomUI 2.0.0 - 选择框组件样式
+ * 定义选择框的基础样式和各种变体
+ */
+
+// 导入变量文件
+@import '../variables.scss';
+
+// ===== 选择框基础样式 =====
+
+.lomui-select {
+  display: block;
+  width: 100%;
+  height: $select-height-base;
+  padding: $spacing-3 $spacing-10 $spacing-3 $spacing-4;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $text-primary;
+  background-color: $bg-primary;
+  border: $border-width solid $border-color;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: all $transition-normal $transition-timing;
+  appearance: none;
+  position: relative;
+
+  // 禁用状态
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $bg-disabled;
+    color: $text-disabled;
+    border-color: $border-light;
+  }
+
+  // 只读状态
+  &:read-only {
+    background-color: $bg-secondary;
+    cursor: default;
+  }
+
+  // 聚焦状态
+  &:focus {
+    outline: none;
+    border-color: $border-focus;
+    box-shadow: $shadow-focus;
+  }
+
+  // 悬停状态
+  &:not(:disabled):hover {
+    border-color: $primary-color;
+  }
+
+  // 自定义下拉箭头
+  &::after {
+    content: '';
+    position: absolute;
+    right: $spacing-4;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid $text-tertiary;
+    pointer-events: none;
+  }
+
+  // 选中状态下的箭头颜色
+  &:focus::after {
+    border-top-color: $primary-color;
+  }
+
+  // 禁用状态下的箭头
+  &:disabled::after {
+    border-top-color: $text-disabled;
+  }
+}
+
+// ===== 选择框变体 =====
+
+// 主色调选择框
+.lomui-select--primary {
+  &:focus {
+    border-color: $primary-color;
+    box-shadow: $shadow-focus;
+  }
+
+  &::after {
+    border-top-color: $primary-color;
+  }
+}
+
+// 尺寸变体
+
+// 大号选择框
+.lomui-select--lg {
+  height: $select-height-lg;
+  padding: $spacing-4 $spacing-10 $spacing-4 $spacing-5;
+  font-size: $font-size-lg;
+  border-radius: $radius-lg;
+
+  &::after {
+    border-left-width: 6px;
+    border-right-width: 6px;
+    border-top-width: 6px;
+  }
+}
+
+// 小号选择框
+.lomui-select--sm {
+  height: $select-height-sm;
+  padding: $spacing-2 $spacing-10 $spacing-2 $spacing-3;
+  font-size: $font-size-sm;
+  border-radius: $radius-sm;
+
+  &::after {
+    border-left-width: 4px;
+    border-right-width: 4px;
+    border-top-width: 4px;
+  }
+}
+
+// 超小选择框
+.lomui-select--xs {
+  height: $select-height-xs;
+  padding: $spacing-1 $spacing-10 $spacing-1 $spacing-2;
+  font-size: $font-size-xs;
+  border-radius: $radius-sm;
+
+  &::after {
+    border-left-width: 3px;
+    border-right-width: 3px;
+    border-top-width: 3px;
+  }
+}
+
+// 形状变体
+
+// 圆角选择框
+.lomui-select--radius {
+  border-radius: $radius-full;
+}
+
+// 无边框选择框
+.lomui-select--borderless {
+  border: $border-width solid transparent;
+  background-color: transparent;
+
+  &:focus {
+    border-color: $border-focus;
+    background-color: $bg-primary;
+  }
+
+  &::after {
+    border-top-color: $text-primary;
+  }
+}
+
+// ===== 选择框状态 =====
+
+// 成功状态
+.lomui-select--success {
+  border-color: $success-color;
+  box-shadow: 0 0 0 2px rgba(0, 180, 42, 0.1);
+
+  &:focus {
+    border-color: $success-color;
+    box-shadow: 0 0 0 2px rgba(0, 180, 42, 0.2);
+  }
+
+  &::after {
+    border-top-color: $success-color;
+  }
+}
+
+// 错误状态
+.lomui-select--error {
+  border-color: $error-color;
+  box-shadow: 0 0 0 2px rgba(245, 63, 63, 0.1);
+
+  &:focus {
+    border-color: $error-color;
+    box-shadow: 0 0 0 2px rgba(245, 63, 63, 0.2);
+  }
+
+  &::after {
+    border-top-color: $error-color;
+  }
+}
+
+// 警告状态
+.lomui-select--warning {
+  border-color: $warning-color;
+  box-shadow: 0 0 0 2px rgba(255, 125, 0, 0.1);
+
+  &:focus {
+    border-color: $warning-color;
+    box-shadow: 0 0 0 2px rgba(255, 125, 0, 0.2);
+  }
+
+  &::after {
+    border-top-color: $warning-color;
+  }
+}
+
+// ===== 自定义下拉菜单 =====
+
+.lomui-select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.lomui-select-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: $spacing-1;
+  background-color: $bg-primary;
+  border: $border-width solid $border-color;
+  border-radius: $radius-md;
+  box-shadow: $shadow-lg;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: $z-index-dropdown;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-$spacing-1);
+  transition: all $transition-normal $transition-timing;
+}
+
+.lomui-select-dropdown--visible {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.lomui-select-dropdown-item {
+  display: block;
+  width: 100%;
+  padding: $spacing-3 $spacing-4;
+  font-size: $font-size-base;
+  color: $text-primary;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: all $transition-normal $transition-timing;
+
+  &:hover {
+    background-color: $bg-hover;
+    color: $primary-color;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:selected,
+  &.lomui-select-dropdown-item--selected {
+    background-color: $primary-light;
+    color: $primary-color;
+    font-weight: $font-weight-medium;
+  }
+
+  &:disabled,
+  &.lomui-select-dropdown-item--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: $bg-disabled;
+    color: $text-disabled;
+
+    &:hover {
+      background-color: $bg-disabled;
+      color: $text-disabled;
+    }
+  }
+}
+
+// ===== 多选框样式 =====
+
+.lomui-select--multiple {
+  height: auto;
+  min-height: $select-height-base;
+  padding: $spacing-2;
+  line-height: 1.5;
+  appearance: none;
+
+  &::after {
+    display: none;
+  }
+
+  option {
+    padding: $spacing-2;
+  }
+}
+
+// 多选框选中项样式
+.lomui-select-multiple-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-2;
+  padding: $spacing-1;
+}
+
+.lomui-select-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing-1 $spacing-3;
+  background-color: $primary-light;
+  color: $primary-color;
+  border-radius: $radius-full;
+  font-size: $font-size-sm;
+  line-height: 1.4;
+}
+
+.lomui-select-tag-remove {
+  margin-left: $spacing-2;
+  background: none;
+  border: none;
+  color: $primary-color;
+  cursor: pointer;
+  font-size: $font-size-lg;
+  line-height: 1;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    color: $primary-hover;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

@@ -1,0 +1,351 @@
+/**
+ * LomUI 2.0.0 - 按钮组件样式
+ * 定义按钮的基础样式和各种变体
+ */
+
+// 导入变量文件
+@import '../variables.scss';
+
+// ===== 按钮基础样式 =====
+
+.lomui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  height: $btn-height-base;
+  padding: $spacing-3 $spacing-6;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  line-height: 1;
+  color: $text-primary;
+  background-color: $bg-primary;
+  border: $border-width solid $border-color;
+  border-radius: $radius-md;
+  cursor: pointer;
+  user-select: none;
+  transition: all $transition-normal $transition-timing;
+  text-decoration: none;
+
+  // 禁用状态
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    background-color: $bg-disabled;
+    border-color: $border-light;
+    color: $text-disabled;
+
+    &:hover,
+    &:active {
+      background-color: $bg-disabled;
+      border-color: $border-light;
+      color: $text-disabled;
+      transform: none;
+    }
+  }
+
+  // 悬停状态
+  &:hover:not(:disabled) {
+    color: $primary-color;
+    background-color: $bg-hover;
+    border-color: $primary-color;
+  }
+
+  // 激活状态
+  &:active:not(:disabled) {
+    color: $primary-active;
+    background-color: $bg-active;
+    border-color: $primary-active;
+    transform: translateY(1px);
+  }
+
+  // 焦点状态
+  &:focus {
+    outline: none;
+    box-shadow: $shadow-focus;
+  }
+}
+
+// ===== 按钮变体 =====
+
+// 主按钮
+.lomui-button--primary {
+  color: $bg-primary;
+  background-color: $primary-color;
+  border-color: $primary-color;
+
+  &:hover:not(:disabled) {
+    background-color: $primary-hover;
+    border-color: $primary-hover;
+    color: $bg-primary;
+  }
+
+  &:active:not(:disabled) {
+    background-color: $primary-active;
+    border-color: $primary-active;
+    color: $bg-primary;
+  }
+}
+
+// 成功按钮
+.lomui-button--success {
+  color: $bg-primary;
+  background-color: $success-color;
+  border-color: $success-color;
+
+  &:hover:not(:disabled) {
+    background-color: $success-hover;
+    border-color: $success-hover;
+    color: $bg-primary;
+  }
+
+  &:active:not(:disabled) {
+    background-color: $success-active;
+    border-color: $success-active;
+    color: $bg-primary;
+  }
+}
+
+// 警告按钮
+.lomui-button--warning {
+  color: $bg-primary;
+  background-color: $warning-color;
+  border-color: $warning-color;
+
+  &:hover:not(:disabled) {
+    background-color: $warning-hover;
+    border-color: $warning-hover;
+    color: $bg-primary;
+  }
+
+  &:active:not(:disabled) {
+    background-color: $warning-active;
+    border-color: $warning-active;
+    color: $bg-primary;
+  }
+}
+
+// 错误按钮
+.lomui-button--error {
+  color: $bg-primary;
+  background-color: $error-color;
+  border-color: $error-color;
+
+  &:hover:not(:disabled) {
+    background-color: $error-hover;
+    border-color: $error-hover;
+    color: $bg-primary;
+  }
+
+  &:active:not(:disabled) {
+    background-color: $error-active;
+    border-color: $error-active;
+    color: $bg-primary;
+  }
+}
+
+// 链接按钮
+.lomui-button--link {
+  min-width: auto;
+  height: auto;
+  padding: $spacing-2 $spacing-3;
+  color: $primary-color;
+  background-color: transparent;
+  border-color: transparent;
+  border-radius: 0;
+
+  &:hover:not(:disabled) {
+    color: $primary-hover;
+    background-color: $primary-light;
+    border-color: transparent;
+    text-decoration: underline;
+  }
+
+  &:active:not(:disabled) {
+    color: $primary-active;
+    background-color: $primary-light;
+    border-color: transparent;
+    transform: none;
+  }
+}
+
+// 尺寸变体
+
+// 大号按钮
+.lomui-button--lg {
+  height: $btn-height-lg;
+  padding: $spacing-4 $spacing-8;
+  font-size: $font-size-lg;
+  border-radius: $radius-lg;
+}
+
+// 小号按钮
+.lomui-button--sm {
+  height: $btn-height-sm;
+  padding: $spacing-2 $spacing-4;
+  font-size: $font-size-sm;
+  border-radius: $radius-sm;
+}
+
+// 超小按钮
+.lomui-button--xs {
+  height: $btn-height-xs;
+  padding: $spacing-1 $spacing-3;
+  font-size: $font-size-xs;
+  border-radius: $radius-sm;
+}
+
+// 形状变体
+
+// 圆角按钮
+.lomui-button--radius {
+  border-radius: $radius-full;
+}
+
+// 圆形按钮
+.lomui-button--circle {
+  width: $btn-height-base;
+  height: $btn-height-base;
+  min-width: $btn-height-base;
+  padding: 0;
+  border-radius: $radius-full;
+}
+
+// 圆形按钮尺寸变体
+.lomui-button--lg.lomui-button--circle {
+  width: $btn-height-lg;
+  height: $btn-height-lg;
+  min-width: $btn-height-lg;
+}
+
+.lomui-button--sm.lomui-button--circle {
+  width: $btn-height-sm;
+  height: $btn-height-sm;
+  min-width: $btn-height-sm;
+}
+
+.lomui-button--xs.lomui-button--circle {
+  width: $btn-height-xs;
+  height: $btn-height-xs;
+  min-width: $btn-height-xs;
+}
+
+// 布局变体
+
+// 流体按钮（占满父容器）
+.lomui-button--fluid {
+  display: flex;
+  width: 100%;
+}
+
+// ===== 按钮组 =====
+
+.lomui-button-group {
+  display: inline-flex;
+  align-items: center;
+  background-color: $bg-secondary;
+  border-radius: $radius-md;
+  overflow: hidden;
+
+  // 按钮组中的按钮
+  .lomui-button {
+    flex: 1;
+    border-radius: 0;
+    border-left: $border-width solid $border-color;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    margin: 0;
+
+    &:first-child {
+      border-left: none;
+      border-top-left-radius: $radius-md;
+      border-bottom-left-radius: $radius-md;
+    }
+
+    &:last-child {
+      border-right: $border-width solid $border-color;
+      border-top-right-radius: $radius-md;
+      border-bottom-right-radius: $radius-md;
+    }
+
+    &:not(:disabled):hover {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+// ===== 按钮加载状态 =====
+
+.lomui-button--loading {
+  position: relative;
+  color: transparent;
+  pointer-events: none;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: $border-width solid $bg-primary;
+    border-top-color: transparent;
+    border-radius: $radius-full;
+    animation: lomui-rotate 0.8s linear infinite;
+  }
+}
+
+.lomui-button--primary.lomui-button--loading::before,
+.lomui-button--success.lomui-button--loading::before,
+.lomui-button--warning.lomui-button--loading::before,
+.lomui-button--error.lomui-button--loading::before {
+  border-color: $bg-primary;
+  border-top-color: transparent;
+}
+
+.lomui-button--link.lomui-button--loading::before,
+.lomui-button.lomui-button--loading::before {
+  border-color: $text-primary;
+  border-top-color: transparent;
+}
+
+// 旋转动画
+@keyframes lomui-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// ===== 禁用选择文本 =====
+
+.lomui-button {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+// ===== 按钮点击效果 =====
+
+.lomui-button-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.lomui-button-effect::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+}
+
+.lomui-button-effect:active::after {
+  width: 300px;
+  height: 300px;
+}

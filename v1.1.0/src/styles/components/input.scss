@@ -1,0 +1,342 @@
+/**
+ * LomUI 2.0.0 - 输入框组件样式
+ * 定义输入框的基础样式和各种变体
+ */
+
+// 导入变量文件
+@import '../variables.scss';
+
+// ===== 输入框基础样式 =====
+
+.lomui-input {
+  display: block;
+  width: 100%;
+  height: $input-height-base;
+  padding: $spacing-3 $spacing-4;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $text-primary;
+  background-color: $bg-primary;
+  border: $border-width solid $border-color;
+  border-radius: $radius-md;
+  transition: all $transition-normal $transition-timing;
+  appearance: none;
+
+  // 禁用状态
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $bg-disabled;
+    color: $text-disabled;
+    border-color: $border-light;
+  }
+
+  // 只读状态
+  &:read-only {
+    background-color: $bg-secondary;
+    cursor: default;
+  }
+
+  // 聚焦状态
+  &:focus {
+    outline: none;
+    border-color: $border-focus;
+    box-shadow: $shadow-focus;
+  }
+
+  // 占位符样式
+  &::placeholder {
+    color: $text-placeholder;
+  }
+
+  // 悬停状态
+  &:not(:disabled):hover {
+    border-color: $primary-color;
+  }
+}
+
+// ===== 输入框变体 =====
+
+// 主色调输入框
+.lomui-input--primary {
+  &:focus {
+    border-color: $primary-color;
+    box-shadow: $shadow-focus;
+  }
+}
+
+// 尺寸变体
+
+// 大号输入框
+.lomui-input--lg {
+  height: $input-height-lg;
+  padding: $spacing-4 $spacing-5;
+  font-size: $font-size-lg;
+  border-radius: $radius-lg;
+}
+
+// 小号输入框
+.lomui-input--sm {
+  height: $input-height-sm;
+  padding: $spacing-2 $spacing-3;
+  font-size: $font-size-sm;
+  border-radius: $radius-sm;
+}
+
+// 超小输入框
+.lomui-input--xs {
+  height: $input-height-xs;
+  padding: $spacing-1 $spacing-2;
+  font-size: $font-size-xs;
+  border-radius: $radius-sm;
+}
+
+// 形状变体
+
+// 圆角输入框
+.lomui-input--radius {
+  border-radius: $radius-full;
+}
+
+// 无边框输入框
+.lomui-input--borderless {
+  border: $border-width solid transparent;
+  background-color: transparent;
+
+  &:focus {
+    border-color: $border-focus;
+    background-color: $bg-primary;
+  }
+}
+
+// ===== 特殊输入框类型 =====
+
+// 密码输入框
+.lomui-input--password {
+  position: relative;
+}
+
+.lomui-input-password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.lomui-input-password-toggle {
+  position: absolute;
+  right: $spacing-3;
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $text-tertiary;
+  transition: color $transition-normal $transition-timing;
+
+  &:hover {
+    color: $text-primary;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// 搜索输入框
+.lomui-input-search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.lomui-input--search {
+  padding-left: $spacing-10;
+}
+
+.lomui-input-search-icon {
+  position: absolute;
+  left: $spacing-3;
+  width: 16px;
+  height: 16px;
+  color: $text-tertiary;
+}
+
+// 数字输入框
+.lomui-input--number {
+  // 移除浏览器默认的上下箭头
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  -moz-appearance: textfield;
+}
+
+// ===== 输入框状态 =====
+
+// 成功状态
+.lomui-input--success {
+  border-color: $success-color;
+  box-shadow: 0 0 0 2px rgba(0, 180, 42, 0.1);
+
+  &:focus {
+    border-color: $success-color;
+    box-shadow: 0 0 0 2px rgba(0, 180, 42, 0.2);
+  }
+}
+
+// 错误状态
+.lomui-input--error {
+  border-color: $error-color;
+  box-shadow: 0 0 0 2px rgba(245, 63, 63, 0.1);
+
+  &:focus {
+    border-color: $error-color;
+    box-shadow: 0 0 0 2px rgba(245, 63, 63, 0.2);
+  }
+}
+
+// 警告状态
+.lomui-input--warning {
+  border-color: $warning-color;
+  box-shadow: 0 0 0 2px rgba(255, 125, 0, 0.1);
+
+  &:focus {
+    border-color: $warning-color;
+    box-shadow: 0 0 0 2px rgba(255, 125, 0, 0.2);
+  }
+}
+
+// ===== 输入框组 =====
+
+.lomui-input-group {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  border-radius: $radius-md;
+  overflow: hidden;
+}
+
+.lomui-input-group-prepend,
+.lomui-input-group-append {
+  display: flex;
+  align-items: center;
+  padding: 0 $spacing-4;
+  background-color: $bg-secondary;
+  border: $border-width solid $border-color;
+  color: $text-secondary;
+  white-space: nowrap;
+}
+
+.lomui-input-group-prepend {
+  border-right: none;
+  border-top-left-radius: $radius-md;
+  border-bottom-left-radius: $radius-md;
+}
+
+.lomui-input-group-append {
+  border-left: none;
+  border-top-right-radius: $radius-md;
+  border-bottom-right-radius: $radius-md;
+}
+
+.lomui-input-group > .lomui-input {
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  z-index: 1;
+}
+
+.lomui-input-group > .lomui-input:first-child {
+  border-left: $border-width solid $border-color;
+  border-top-left-radius: $radius-md;
+  border-bottom-left-radius: $radius-md;
+}
+
+.lomui-input-group > .lomui-input:last-child {
+  border-right: $border-width solid $border-color;
+  border-top-right-radius: $radius-md;
+  border-bottom-right-radius: $radius-md;
+}
+
+// 带标签的输入框组
+.lomui-input-group > .lomui-input-group-prepend + .lomui-input {
+  border-left: none;
+}
+
+.lomui-input-group > .lomui-input + .lomui-input-group-append {
+  border-left: none;
+}
+
+// 输入框组中的按钮
+.lomui-input-group > .lomui-input-group-append .lomui-button {
+  border-radius: 0;
+  border: none;
+  height: 100%;
+  min-width: auto;
+  padding: $spacing-3 $spacing-5;
+  margin: 0;
+}
+
+.lomui-input-group > .lomui-input-group-prepend .lomui-button {
+  border-radius: 0;
+  border: none;
+  height: 100%;
+  min-width: auto;
+  padding: $spacing-3 $spacing-5;
+  margin: 0;
+}
+
+// ===== 文本域 =====
+
+.lomui-textarea {
+  display: block;
+  width: 100%;
+  min-height: 80px;
+  padding: $spacing-3 $spacing-4;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $text-primary;
+  background-color: $bg-primary;
+  border: $border-width solid $border-color;
+  border-radius: $radius-md;
+  resize: vertical;
+  transition: all $transition-normal $transition-timing;
+
+  // 禁用状态
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $bg-disabled;
+    color: $text-disabled;
+    border-color: $border-light;
+  }
+
+  // 聚焦状态
+  &:focus {
+    outline: none;
+    border-color: $border-focus;
+    box-shadow: $shadow-focus;
+  }
+
+  // 占位符样式
+  &::placeholder {
+    color: $text-placeholder;
+  }
+}
+
+// 文本域尺寸变体
+
+.lomui-textarea--lg {
+  min-height: 120px;
+  padding: $spacing-4 $spacing-5;
+  font-size: $font-size-lg;
+  border-radius: $radius-lg;
+}
+
+.lomui-textarea--sm {
+  min-height: 60px;
+  padding: $spacing-2 $spacing-3;
+  font-size: $font-size-sm;
+  border-radius: $radius-sm;
+}

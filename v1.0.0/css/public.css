@@ -1,0 +1,290 @@
+/**
+ * Software: [Sofnet LomUI Framework]
+ * Author: 王迈新
+ * Copyright (c) 2024, www.iorouter.online. All Rights Reserved.
+ * Last edit time: 2024-9-28
+ */
+
+/* CSS变量定义 - 统一管理颜色、尺寸等 */
+:root {
+    /* 主题颜色 */
+    --lomui-primary-color: #5D4037;
+    --lomui-primary-hover: #795548;
+    --lomui-primary-active: #5D4037;
+    --lomui-text-color: #333;
+    --lomui-border-color: #757575;
+    --lomui-border-hover: #BDBDBD;
+    --lomui-bg-color: #f0f0f0;
+    --lomui-white: #fff;
+    
+    /* 按钮尺寸 */
+    --lomui-btn-padding: 11px 21px;
+    --lomui-btn-padding-lg: 11px 21px;
+    --lomui-btn-padding-sm: 7px 13px;
+    --lomui-btn-padding-xs: 2px 4px;
+    
+    /* 按钮字体大小 */
+    --lomui-btn-font-size: 1em;
+    --lomui-btn-font-size-lg: 1.1em;
+    --lomui-btn-font-size-sm: 0.7em;
+    --lomui-btn-font-size-xs: 0.5em;
+    
+    /* 输入框尺寸 */
+    --lomui-input-width: 300px;
+    --lomui-input-padding: 8px 4px 8px 8px;
+    --lomui-input-font-size: 0.85em;
+    --lomui-input-border-radius: 5px;
+    
+    /* 密码框尺寸 */
+    --lomui-pwd-width: 150px;
+    
+    /* 过渡动画 */
+    --lomui-transition: all 0.2s ease;
+    
+    /* 圆角 */
+    --lomui-radius: 2px;
+    --lomui-radius-large: 100px;
+    
+    /* 导航栏 */
+    --lomui-nav-bg: #212121;
+    --lomui-nav-text: #BDBDBD;
+    --lomui-nav-item-padding: 20px 10px;
+    
+    /* 标题 */
+    --lomui-title-font-size: 1.25em;
+    --lomui-title-font-weight: 300;
+}
+
+/* 基础重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--lomui-bg-color);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* 按钮组件 - BEM命名规范 */
+.lomui-btn {
+    padding: var(--lomui-btn-padding);
+    background: var(--lomui-primary-color);
+    border: none;
+    color: var(--lomui-white);
+    border-radius: var(--lomui-radius);
+    font-size: var(--lomui-btn-font-size);
+    transition: var(--lomui-transition);
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+}
+
+.lomui-btn:hover {
+    background: var(--lomui-primary-hover);
+}
+
+.lomui-btn:active {
+    background: var(--lomui-primary-active);
+    transform: translateY(1px);
+}
+
+/* 按钮尺寸变体 */
+.lomui-btn--lg {
+    padding: var(--lomui-btn-padding-lg);
+    font-size: var(--lomui-btn-font-size-lg);
+}
+
+.lomui-btn--sm {
+    padding: var(--lomui-btn-padding-sm);
+    font-size: var(--lomui-btn-font-size-sm);
+}
+
+.lomui-btn--xs {
+    padding: var(--lomui-btn-padding-xs);
+    font-size: var(--lomui-btn-font-size-xs);
+}
+
+/* 按钮状态变体 */
+.lomui-btn--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* 按钮形状变体 */
+.lomui-btn--radius {
+    border-radius: var(--lomui-radius-large);
+}
+
+/* 按钮布局变体 */
+.lomui-btn--fluid {
+    width: 100%;
+}
+
+/* 输入框组件 */
+.lomui-input {
+    padding: var(--lomui-input-padding);
+    width: var(--lomui-input-width);
+    font-size: var(--lomui-input-font-size);
+    border: 1px solid var(--lomui-border-color);
+    border-radius: var(--lomui-input-border-radius);
+    background: rgba(255, 255, 255, 0.2);
+    transition: var(--lomui-transition);
+    font-family: inherit;
+}
+
+.lomui-input:focus {
+    outline: none;
+    border-color: var(--lomui-border-hover);
+    box-shadow: 0 0 0 2px rgba(121, 85, 72, 0.1);
+}
+
+.lomui-input:hover {
+    border-color: var(--lomui-border-hover);
+}
+
+/* 密码框组件 */
+.lomui-input--password {
+    width: var(--lomui-pwd-width);
+}
+
+/* 选择框组件 */
+.lomui-select {
+    display: flex;
+    align-items: center;
+}
+
+.lomui-select__select {
+    width: var(--lomui-input-width);
+    padding: var(--lomui-input-padding);
+    border: 1px solid var(--lomui-border-color);
+    border-radius: var(--lomui-input-border-radius);
+    background: rgba(255, 255, 255, 0.2);
+    transition: var(--lomui-transition);
+    color: var(--lomui-text-color);
+    font-family: inherit;
+    font-size: var(--lomui-input-font-size);
+    cursor: pointer;
+}
+
+.lomui-select__select:focus {
+    outline: none;
+    border-color: var(--lomui-border-hover);
+    box-shadow: 0 0 0 2px rgba(121, 85, 72, 0.1);
+}
+
+.lomui-select__select:hover {
+    border-color: var(--lomui-border-hover);
+}
+
+.lomui-select__title {
+    margin-right: 10px;
+}
+
+/* 标题组件 */
+.lomui-title {
+    padding-left: 20px;
+    margin: 15px 20px 5px 20px;
+    font-size: var(--lomui-title-font-size);
+    font-weight: var(--lomui-title-font-weight);
+    color: var(--lomui-text-color);
+    border: 1px solid #999;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+.lomui-title__legend {
+    padding: 0 4px 2px 4px;
+}
+
+/* 导航组件 */
+.lomui-nav {
+    display: flex;
+    background: var(--lomui-nav-bg);
+    color: var(--lomui-nav-text);
+}
+
+.lomui-nav--fluid {
+    width: 100%;
+}
+
+.lomui-nav--vertical {
+    flex-direction: column;
+}
+
+.lomui-nav__item {
+    list-style-type: none;
+    padding: var(--lomui-nav-item-padding);
+    margin-left: 20px;
+    font-weight: 320;
+    cursor: pointer;
+    border: 4px solid var(--lomui-nav-bg);
+    transition: var(--lomui-transition);
+}
+
+.lomui-nav__item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-bottom-color: var(--lomui-primary-color);
+}
+
+.lomui-nav__item--active {
+    color: var(--lomui-white);
+    border-bottom-color: var(--lomui-primary-color);
+}
+
+/* Tab组件 */
+.lomui-tab {
+    display: flex;
+}
+
+.lomui-tab__title {
+    list-style-type: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: var(--lomui-transition);
+    border-bottom: 2px solid transparent;
+}
+
+.lomui-tab__title:hover {
+    color: var(--lomui-primary-color);
+}
+
+.lomui-tab__title--active {
+    color: var(--lomui-primary-color);
+    border-bottom-color: var(--lomui-primary-color);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    :root {
+        --lomui-input-width: 100%;
+        --lomui-pwd-width: 100%;
+    }
+    
+    .lomui-btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .lomui-nav {
+        flex-direction: column;
+    }
+    
+    .lomui-nav__item {
+        margin-left: 0;
+        text-align: center;
+    }
+    
+    .lomui-tab {
+        flex-wrap: wrap;
+    }
+}
+
+
+

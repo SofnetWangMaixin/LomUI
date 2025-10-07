@@ -1,0 +1,348 @@
+/**
+ * LomUI 2.0.0 - 导航组件样式
+ * 定义导航的基础样式和各种变体
+ */
+
+// 导入变量文件
+@import '../variables.scss';
+
+// ===== 导航基础样式 =====
+
+.lomui-nav {
+  display: flex;
+  align-items: center;
+  background-color: $bg-primary;
+  border-bottom: $border-width solid $border-color;
+  height: $nav-height;
+  padding: 0 $spacing-4;
+  transition: all $transition-normal $transition-timing;
+}
+
+.lomui-nav__item {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 $spacing-6;
+  color: $text-secondary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all $transition-normal $transition-timing;
+  position: relative;
+
+  // 悬停状态
+  &:hover {
+    color: $primary-color;
+    background-color: $bg-hover;
+  }
+
+  // 激活状态
+  &.lomui-nav__item--active {
+    color: $primary-color;
+    background-color: $primary-light;
+    font-weight: $font-weight-semibold;
+  }
+
+  // 禁用状态
+  &:disabled,
+  &.lomui-nav__item--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    color: $text-disabled;
+
+    &:hover {
+      background-color: transparent;
+      color: $text-disabled;
+    }
+  }
+}
+
+// ===== 导航类型 =====
+
+// 水平导航（默认）
+.lomui-nav--horizontal {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+// 垂直导航
+.lomui-nav--vertical {
+  flex-direction: column;
+  height: auto;
+  min-height: $nav-height;
+  width: 200px;
+  border-right: $border-width solid $border-color;
+  border-bottom: none;
+  padding: $spacing-2 0;
+}
+
+.lomui-nav--vertical .lomui-nav__item {
+  width: 100%;
+  height: $nav-height;
+  justify-content: center;
+  padding: 0 $spacing-4;
+  border-radius: 0;
+}
+
+// ===== 导航变体 =====
+
+// 主色调导航
+.lomui-nav--primary {
+  background-color: $primary-color;
+  border-color: $primary-color;
+
+  .lomui-nav__item {
+    color: rgba(255, 255, 255, 0.85);
+
+    &:hover {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &.lomui-nav__item--active {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+// 深色导航
+.lomui-nav--dark {
+  background-color: $primary-dark;
+  border-color: $border-dark;
+
+  .lomui-nav__item {
+    color: rgba(255, 255, 255, 0.85);
+
+    &:hover {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &.lomui-nav__item--active {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+// 浅色导航
+.lomui-nav--light {
+  background-color: $bg-secondary;
+  border-color: $border-light;
+
+  .lomui-nav__item {
+    &:hover {
+      background-color: $bg-hover;
+    }
+
+    &.lomui-nav__item--active {
+      background-color: $bg-primary;
+    }
+  }
+}
+
+// ===== 导航尺寸 =====
+
+// 大号导航
+.lomui-nav--lg {
+  height: $nav-height + $spacing-4;
+  padding: 0 $spacing-6;
+}
+
+.lomui-nav--lg .lomui-nav__item {
+  padding: 0 $spacing-8;
+  font-size: $font-size-lg;
+}
+
+// 小号导航
+.lomui-nav--sm {
+  height: $nav-height - $spacing-4;
+  padding: 0 $spacing-3;
+}
+
+.lomui-nav--sm .lomui-nav__item {
+  padding: 0 $spacing-4;
+  font-size: $font-size-sm;
+}
+
+// ===== 导航布局 =====
+
+// 居中导航
+.lomui-nav--center {
+  justify-content: center;
+}
+
+// 右侧对齐导航
+.lomui-nav--right {
+  justify-content: flex-end;
+}
+
+// 两端对齐导航
+.lomui-nav--justify {
+  justify-content: space-between;
+}
+
+// ===== 导航带图标 =====
+
+.lomui-nav__item-icon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: $spacing-2;
+  width: 16px;
+  height: 16px;
+}
+
+.lomui-nav--vertical .lomui-nav__item-icon {
+  margin-right: $spacing-3;
+}
+
+// ===== 导航带徽章 =====
+
+.lomui-nav__item-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 16px;
+  height: 16px;
+  margin-left: $spacing-2;
+  padding: 0 $spacing-2;
+  font-size: $font-size-xs;
+  line-height: 1;
+  color: $bg-primary;
+  background-color: $error-color;
+  border-radius: $radius-full;
+}
+
+// ===== 导航分隔符 =====
+
+.lomui-nav__divider {
+  width: $border-width;
+  height: 20px;
+  background-color: $border-color;
+  margin: 0 $spacing-2;
+}
+
+.lomui-nav--vertical .lomui-nav__divider {
+  width: 100%;
+  height: $border-width;
+  margin: $spacing-2 0;
+}
+
+// ===== 导航下拉菜单 =====
+
+.lomui-nav__dropdown {
+  position: relative;
+}
+
+.lomui-nav__dropdown-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.lomui-nav__dropdown-toggle::after {
+  content: '';
+  display: inline-block;
+  margin-left: $spacing-2;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid currentColor;
+  transition: transform $transition-normal $transition-timing;
+}
+
+.lomui-nav__dropdown--open .lomui-nav__dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+
+.lomui-nav__dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: $z-index-dropdown;
+  display: none;
+  min-width: 160px;
+  padding: $spacing-2 0;
+  margin: 0;
+  background-color: $bg-primary;
+  border: $border-width solid $border-color;
+  border-radius: $radius-md;
+  box-shadow: $shadow-lg;
+  list-style: none;
+}
+
+.lomui-nav__dropdown--open .lomui-nav__dropdown-menu {
+  display: block;
+}
+
+.lomui-nav__dropdown-item {
+  display: block;
+  width: 100%;
+  padding: $spacing-3 $spacing-6;
+  clear: both;
+  font-weight: $font-weight-normal;
+  color: $text-primary;
+  text-align: left;
+  white-space: nowrap;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: all $transition-normal $transition-timing;
+
+  &:hover {
+    color: $primary-color;
+    background-color: $bg-hover;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled,
+  &.lomui-nav__dropdown-item--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    color: $text-disabled;
+
+    &:hover {
+      background-color: transparent;
+      color: $text-disabled;
+    }
+  }
+
+  &.lomui-nav__dropdown-item--active {
+    color: $primary-color;
+    background-color: $primary-light;
+    font-weight: $font-weight-medium;
+  }
+}
+
+// 垂直导航中的下拉菜单
+.lomui-nav--vertical .lomui-nav__dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-left: $spacing-1;
+}
+
+// ===== 响应式导航 =====
+
+@media (max-width: $breakpoint-md - 1) {
+  .lomui-nav--horizontal {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: $nav-height;
+  }
+
+  .lomui-nav__item {
+    height: $nav-height - $spacing-2;
+    padding: 0 $spacing-4;
+  }
+
+  .lomui-nav--vertical {
+    width: 100%;
+    border-right: none;
+    border-bottom: $border-width solid $border-color;
+  }
+}

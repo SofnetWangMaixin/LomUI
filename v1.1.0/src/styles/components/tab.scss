@@ -1,0 +1,321 @@
+/**
+ * LomUI 2.0.0 - Tab组件样式
+ * 定义Tab选项卡的基础样式和各种变体
+ */
+
+// 导入变量文件
+@import '../variables.scss';
+
+// ===== Tab容器样式 =====
+
+.lomui-tab-container {
+  width: 100%;
+  background-color: $bg-primary;
+  border: $border-width solid $border-color;
+  border-radius: $radius-md;
+  overflow: hidden;
+  transition: all $transition-normal $transition-timing;
+}
+
+// ===== Tab标题栏样式 =====
+
+.lomui-tab {
+  display: flex;
+  align-items: center;
+  background-color: $bg-secondary;
+  border-bottom: $border-width solid $border-color;
+  min-height: $tab-height;
+  transition: all $transition-normal $transition-timing;
+}
+
+.lomui-tab__title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: $tab-height;
+  padding: 0 $spacing-6;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $text-secondary;
+  cursor: pointer;
+  transition: all $transition-normal $transition-timing;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+
+  // 悬停状态
+  &:hover {
+    color: $primary-color;
+    background-color: $bg-hover;
+  }
+
+  // 激活状态
+  &.lomui-tab__title--active {
+    color: $primary-color;
+    background-color: $bg-primary;
+    border-bottom-color: $primary-color;
+    font-weight: $font-weight-semibold;
+  }
+
+  // 禁用状态
+  &:disabled,
+  &.lomui-tab__title--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    color: $text-disabled;
+
+    &:hover {
+      background-color: $bg-secondary;
+      color: $text-disabled;
+    }
+  }
+}
+
+// ===== Tab内容容器样式 =====
+
+.lomui-tab__content-container {
+  padding: $spacing-6;
+  background-color: $bg-primary;
+  transition: all $transition-normal $transition-timing;
+}
+
+.lomui-tab__content {
+  display: none;
+  min-height: 100px;
+  transition: all $transition-normal $transition-timing;
+}
+
+.lomui-tab__content--active {
+  display: block;
+  animation: lomui-tab-fade-in $transition-normal $transition-timing;
+}
+
+// Tab内容淡入动画
+@keyframes lomui-tab-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY($spacing-2);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ===== Tab变体 =====
+
+// 主色调Tab
+.lomui-tab--primary {
+  .lomui-tab__title--active {
+    color: $primary-color;
+    border-bottom-color: $primary-color;
+  }
+
+  .lomui-tab__title:hover {
+    color: $primary-color;
+  }
+}
+
+// 成功色调Tab
+.lomui-tab--success {
+  .lomui-tab__title--active {
+    color: $success-color;
+    border-bottom-color: $success-color;
+  }
+
+  .lomui-tab__title:hover {
+    color: $success-color;
+  }
+}
+
+// 警告色调Tab
+.lomui-tab--warning {
+  .lomui-tab__title--active {
+    color: $warning-color;
+    border-bottom-color: $warning-color;
+  }
+
+  .lomui-tab__title:hover {
+    color: $warning-color;
+  }
+}
+
+// 错误色调Tab
+.lomui-tab--error {
+  .lomui-tab__title--active {
+    color: $error-color;
+    border-bottom-color: $error-color;
+  }
+
+  .lomui-tab__title:hover {
+    color: $error-color;
+  }
+}
+
+// ===== Tab尺寸 =====
+
+// 大号Tab
+.lomui-tab--lg {
+  min-height: $tab-large-height;
+}
+
+.lomui-tab--lg .lomui-tab__title {
+  height: $tab-large-height;
+  padding: 0 $spacing-8;
+  font-size: $font-size-lg;
+}
+
+// 小号Tab
+.lomui-tab--sm {
+  min-height: $tab-height - $spacing-2;
+}
+
+.lomui-tab--sm .lomui-tab__title {
+  height: $tab-height - $spacing-2;
+  padding: 0 $spacing-4;
+  font-size: $font-size-sm;
+}
+
+// ===== Tab布局 =====
+
+// 居中Tab标题
+.lomui-tab--center {
+  justify-content: center;
+}
+
+// 右侧对齐Tab标题
+.lomui-tab--right {
+  justify-content: flex-end;
+}
+
+// 两端对齐Tab标题
+.lomui-tab--justify {
+  justify-content: space-between;
+}
+
+// ===== 无边框Tab =====
+
+.lomui-tab-container--borderless {
+  border: none;
+  box-shadow: none;
+}
+
+.lomui-tab-container--borderless .lomui-tab {
+  border-bottom: none;
+  background-color: transparent;
+}
+
+// ===== 简洁Tab =====
+
+.lomui-tab-container--simple {
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.lomui-tab-container--simple .lomui-tab {
+  background-color: transparent;
+  border-bottom: $border-width solid $border-color;
+}
+
+.lomui-tab-container--simple .lomui-tab__content-container {
+  padding: $spacing-4 0;
+  background-color: transparent;
+}
+
+// ===== 填充式Tab =====
+
+.lomui-tab--full {
+  .lomui-tab__title {
+    flex: 1;
+  }
+}
+
+// ===== 垂直Tab =====
+
+.lomui-tab--vertical {
+  flex-direction: column;
+  float: left;
+  width: 150px;
+  height: 100%;
+  border-bottom: none;
+  border-right: $border-width solid $border-color;
+  background-color: $bg-secondary;
+}
+
+.lomui-tab--vertical .lomui-tab__title {
+  width: 100%;
+  border-bottom: none;
+  border-right: 2px solid transparent;
+  margin-bottom: 0;
+  justify-content: flex-start;
+  padding: 0 $spacing-4;
+}
+
+.lomui-tab--vertical .lomui-tab__title--active {
+  border-right-color: $primary-color;
+  border-bottom-color: transparent;
+  background-color: $bg-primary;
+}
+
+.lomui-tab-container--vertical {
+  position: relative;
+  height: 300px; // 默认高度，可以根据需要调整
+}
+
+.lomui-tab-container--vertical .lomui-tab__content-container {
+  margin-left: 150px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+// ===== Tab带图标 =====
+
+.lomui-tab__title-icon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: $spacing-2;
+  width: 16px;
+  height: 16px;
+}
+
+// ===== Tab带徽章 =====
+
+.lomui-tab__title-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 16px;
+  height: 16px;
+  margin-left: $spacing-2;
+  padding: 0 $spacing-2;
+  font-size: $font-size-xs;
+  line-height: 1;
+  color: $bg-primary;
+  background-color: $error-color;
+  border-radius: $radius-full;
+}
+
+// ===== 响应式Tab =====
+
+@media (max-width: $breakpoint-md - 1) {
+  .lomui-tab {
+    flex-wrap: wrap;
+  }
+
+  .lomui-tab__title {
+    padding: 0 $spacing-4;
+    font-size: $font-size-sm;
+  }
+
+  .lomui-tab--vertical {
+    float: none;
+    width: 100%;
+    border-right: none;
+    border-bottom: $border-width solid $border-color;
+  }
+
+  .lomui-tab-container--vertical .lomui-tab__content-container {
+    margin-left: 0;
+    height: auto;
+  }
+}

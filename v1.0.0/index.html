@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minit LomUI</title>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/Popup.css">
+</head>
+<body>
+
+    <fieldset class="lomui-title">
+        <legend class="lomui-title__legend">
+            <a name="hr">按钮</a>
+        </legend>
+    </fieldset>
+
+    <div>
+        <button class="lomui-btn lomui-btn--lg">大型按钮</button>
+        <button class="lomui-btn">默认按钮</button>
+        <button class="lomui-btn lomui-btn--disabled">禁用按钮</button>
+        <button class="lomui-btn lomui-btn--sm">小型按钮</button>
+        <button class="lomui-btn lomui-btn--xs">迷你按钮</button>
+    </div>
+
+    <fieldset class="lomui-title">
+        <legend class="lomui-title__legend">
+            <a name="hr">圆角按钮</a>
+        </legend>
+    </fieldset>
+    
+    <div>
+        <button class="lomui-btn lomui-btn--lg lomui-btn--radius">大型按钮</button>
+        <button class="lomui-btn lomui-btn--radius">圆角按钮</button>
+        <button class="lomui-btn lomui-btn--disabled lomui-btn--radius">禁用按钮</button>
+        <button class="lomui-btn lomui-btn--sm lomui-btn--radius">小型按钮</button>
+        <button class="lomui-btn lomui-btn--xs lomui-btn--radius">迷你按钮</button>
+    </div>
+
+    <fieldset class="lomui-title">
+        <legend class="lomui-title__legend">
+            <a name="hr">流体按钮</a>
+        </legend>
+    </fieldset>
+
+    <div>
+        <button class="lomui-btn lomui-btn--fluid">流体按钮（最大化适配）</button>
+    </div>
+
+    <fieldset class="lomui-title">
+        <legend class="lomui-title__legend">
+            <a name="hr">表单</a>
+        </legend>
+    </fieldset>
+
+    <div style="margin-left: 25px;">
+        <p>输入框<input type="text" placeholder="请输入内容" class="lomui-input" style="margin-left: 10px;"></p>
+        <p>密码框<input type="password" placeholder="请输入密码" class="lomui-input lomui-input--password" style="margin: 10px 0 0 10px;"></p>
+        
+
+        <div class="lomui-select" style="margin-top: 10px;">
+            <p class="lomui-select__title" style="margin-right: 10px;">请选择</p>
+            <select class="lomui-select__select">
+                <option>请选择</option>
+                <option>新乡</option>
+                <option>宁波</option>
+                <option>天津</option>
+            </select>
+        </div>
+    </div>
+
+    <fieldset class="lomui-title">
+        <legend class="lomui-title__legend">
+            <a name="hr">导航</a>
+        </legend>
+    </fieldset>
+
+    <div>
+        <!-- 横向导航栏 -->
+        <ul class="lomui-nav lomui-nav--fluid">
+            <li class="lomui-nav__item">迷小</li>
+            <li class="lomui-nav__item">乡网</li>
+            <li class="lomui-nav__item">基建</li>
+            <li class="lomui-nav__item">志愿救援</li>
+        </ul>
+        <!-- 垂直导航栏 -->
+        <ul class="lomui-nav lomui-nav--vertical" style="margin-top: 10px;margin-left: 10px;">
+            <li class="lomui-nav__item">迷小</li>
+            <li class="lomui-nav__item">乡网</li>
+            <li class="lomui-nav__item">基建</li>
+            <li class="lomui-nav__item">志愿救援</li>
+        </ul>
+    </div>
+
+
+    <fieldset class="lomui-title">
+        <legend class="lomui-title__legend">
+            <a name="hr">Tab选项卡</a>
+        </legend>
+    </fieldset>
+
+    
+    <div>
+        <ul class="lomui-tab">
+            <li class="lomui-tab__title lomui-tab__title--active">设置</li>
+            <li class="lomui-tab__title">管理</li>
+            <li class="lomui-tab__title">订单</li>
+            <li class="lomui-tab__title">分配</li>
+        </ul>
+    </div>
+
+
+    <div style="height: 500px;width: 500px;"></div>
+
+    <!-- 演示弹窗功能的按钮 -->
+    <div style="margin: 20px;">
+        <fieldset class="lomui-title">
+            <legend class="lomui-title__legend">
+                <a name="hr">弹窗演示</a>
+            </legend>
+        </fieldset>
+        <button class="lomui-btn" id="showInfo">信息弹窗</button>
+        <button class="lomui-btn" id="showSuccess">成功弹窗</button>
+        <button class="lomui-btn" id="showError">错误弹窗</button>
+        <button class="lomui-btn" id="showWarning">警告弹窗</button>
+    </div>
+
+
+    <!-- <h2 class="lomui-title">Welcome to LomUI!</h2> -->
+
+    
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/public.js"></script>
+    <script type="text/javascript" src="js/Popup.js"></script>
+    
+    <script>
+        // 等待文档加载完成
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为弹窗演示按钮添加点击事件
+            document.getElementById('showInfo').addEventListener('click', function() {
+                LomUI.popup.info('这是一条信息提示');
+            });
+            
+            document.getElementById('showSuccess').addEventListener('click', function() {
+                LomUI.popup.success('操作成功！');
+            });
+            
+            document.getElementById('showError').addEventListener('click', function() {
+                LomUI.popup.error('操作失败，请重试');
+            });
+            
+            document.getElementById('showWarning').addEventListener('click', function() {
+                LomUI.popup.warning('警告：请检查输入');
+            });
+            
+            // 演示高级用法
+            document.querySelector('.lomui-btn').addEventListener('click', function() {
+                // 使用对象形式配置弹窗
+                const popupId = LomUI.popup.msg({
+                    content: '这是一个自定义弹窗',
+                    duration: 5000,
+                    type: 'info',
+                    onShow: function() {
+                        console.log('弹窗已显示');
+                    },
+                    onClose: function() {
+                        console.log('弹窗已关闭');
+                    },
+                    width: '400px'
+                });
+                
+                // 可以通过ID手动关闭弹窗
+                // setTimeout(function() {
+                //     LomUI.popup.close(popupId);
+                // }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>

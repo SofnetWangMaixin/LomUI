@@ -1,0 +1,409 @@
+/**
+ * LomUI 2.0.0 - 弹窗组件样式
+ * 定义弹窗的基础样式和各种变体
+ */
+
+// 导入变量文件
+@import '../variables.scss';
+
+// ===== 弹窗遮罩层 =====
+
+.lomui-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: $z-index-modal-backdrop;
+  opacity: 0;
+  visibility: hidden;
+  transition: all $transition-normal $transition-timing;
+
+  &.lomui-popup-overlay--active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  // 点击遮罩关闭弹窗
+  &.lomui-popup-overlay--closable {
+    cursor: pointer;
+  }
+
+  &.lomui-popup-overlay--blur {
+    backdrop-filter: blur(4px);
+  }
+}
+
+// ===== 弹窗容器 =====
+
+.lomui-popup {
+  position: relative;
+  min-width: $popup-min-width;
+  max-width: $popup-max-width;
+  max-height: 80vh;
+  background-color: $bg-primary;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-xl;
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.95);
+  opacity: 0;
+  transition: all $transition-normal $transition-timing;
+  z-index: $z-index-modal;
+  overflow: hidden;
+
+  &.lomui-popup--active {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  // 弹窗可滚动内容区域
+  &.lomui-popup--scrollable {
+    .lomui-popup__body {
+      overflow-y: auto;
+      max-height: calc(80vh - #{$popup-header-height} - #{$popup-footer-height});
+    }
+  }
+
+  // 点击弹窗内容阻止冒泡
+  .lomui-popup__content {
+    cursor: default;
+  }
+}
+
+// ===== 弹窗头部 =====
+
+.lomui-popup__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-4 $spacing-6;
+  border-bottom: $border-width solid $border-color;
+  min-height: $popup-header-height;
+}
+
+.lomui-popup__title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  margin: 0;
+}
+
+// ===== 弹窗关闭按钮 =====
+
+.lomui-popup__close {
+  position: absolute;
+  top: $spacing-3;
+  right: $spacing-3;
+  width: $popup-close-size;
+  height: $popup-close-size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: $text-tertiary;
+  cursor: pointer;
+  border-radius: $radius-full;
+  transition: all $transition-normal $transition-timing;
+  z-index: 1;
+
+  &:hover {
+    background-color: $bg-hover;
+    color: $text-primary;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// ===== 弹窗内容区域 =====
+
+.lomui-popup__content {
+  flex: 1;
+  padding: $spacing-6;
+}
+
+.lomui-popup__body {
+  color: $text-secondary;
+  line-height: $line-height-lg;
+}
+
+// ===== 弹窗底部 =====
+
+.lomui-popup__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: $spacing-4 $spacing-6;
+  border-top: $border-width solid $border-color;
+  gap: $spacing-3;
+  min-height: $popup-footer-height;
+}
+
+// ===== 弹窗变体 =====
+
+// 确认弹窗
+.lomui-popup--confirm {
+  min-width: 360px;
+  max-width: 480px;
+}
+
+// 提示弹窗
+.lomui-popup--alert {
+  min-width: 320px;
+  max-width: 400px;
+}
+
+// 信息弹窗
+.lomui-popup--info {
+  min-width: 300px;
+  max-width: 420px;
+  .lomui-popup__content {
+    text-align: center;
+  }
+}
+
+// 成功弹窗
+.lomui-popup--success {
+  min-width: 300px;
+  max-width: 420px;
+  .lomui-popup__content {
+    text-align: center;
+  }
+}
+
+// 错误弹窗
+.lomui-popup--error {
+  min-width: 300px;
+  max-width: 420px;
+  .lomui-popup__content {
+    text-align: center;
+  }
+}
+
+// 警告弹窗
+.lomui-popup--warning {
+  min-width: 300px;
+  max-width: 420px;
+  .lomui-popup__content {
+    text-align: center;
+  }
+}
+
+// 全屏弹窗
+.lomui-popup--fullscreen {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  border-radius: 0;
+}
+
+// 大号弹窗
+.lomui-popup--lg {
+  max-width: 720px;
+  min-width: 600px;
+}
+
+// 小号弹窗
+.lomui-popup--sm {
+  min-width: 280px;
+  max-width: 360px;
+}
+
+// ===== 弹窗位置 =====
+
+// 顶部弹窗
+.lomui-popup-overlay--top {
+  align-items: flex-start;
+  padding-top: $spacing-8;
+}
+
+.lomui-popup-overlay--top .lomui-popup {
+  animation: lomui-popup-slide-down $transition-normal $transition-timing;
+}
+
+// 底部弹窗
+.lomui-popup-overlay--bottom {
+  align-items: flex-end;
+  padding-bottom: $spacing-8;
+}
+
+.lomui-popup-overlay--bottom .lomui-popup {
+  animation: lomui-popup-slide-up $transition-normal $transition-timing;
+}
+
+// 左侧弹窗
+.lomui-popup-overlay--left {
+  justify-content: flex-start;
+  padding-left: $spacing-8;
+}
+
+.lomui-popup-overlay--left .lomui-popup {
+  animation: lomui-popup-slide-right $transition-normal $transition-timing;
+}
+
+// 右侧弹窗
+.lomui-popup-overlay--right {
+  justify-content: flex-end;
+  padding-right: $spacing-8;
+}
+
+.lomui-popup-overlay--right .lomui-popup {
+  animation: lomui-popup-slide-left $transition-normal $transition-timing;
+}
+
+// ===== 弹窗动画 =====
+
+@keyframes lomui-popup-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes lomui-popup-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes lomui-popup-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes lomui-popup-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// ===== 轻量级消息提示 =====
+
+.lomui-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: $spacing-4 $spacing-6;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: $bg-primary;
+  border-radius: $radius-md;
+  font-size: $font-size-base;
+  z-index: $z-index-tooltip;
+  opacity: 0;
+  visibility: hidden;
+  transition: all $transition-normal $transition-timing;
+  pointer-events: none;
+
+  &.lomui-toast--active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// 顶部消息提示
+.lomui-toast--top {
+  top: $spacing-8;
+  transform: translateX(-50%);
+}
+
+// 底部消息提示
+.lomui-toast--bottom {
+  top: auto;
+  bottom: $spacing-8;
+  transform: translateX(-50%);
+}
+
+// 左侧消息提示
+.lomui-toast--left {
+  left: $spacing-8;
+  transform: translateY(-50%);
+}
+
+// 右侧消息提示
+.lomui-toast--right {
+  left: auto;
+  right: $spacing-8;
+  transform: translateY(-50%);
+}
+
+// ===== 消息提示变体 =====
+
+.lomui-toast--success {
+  background-color: rgba(0, 180, 42, 0.9);
+}
+
+.lomui-toast--error {
+  background-color: rgba(245, 63, 63, 0.9);
+}
+
+.lomui-toast--warning {
+  background-color: rgba(255, 125, 0, 0.9);
+}
+
+.lomui-toast--info {
+  background-color: rgba(22, 93, 255, 0.9);
+}
+
+// ===== 响应式弹窗 =====
+
+@media (max-width: $breakpoint-md - 1) {
+  .lomui-popup {
+    min-width: calc(100vw - #{$spacing-8});
+    max-width: calc(100vw - #{$spacing-8});
+    margin: 0 $spacing-4;
+    max-height: calc(100vh - #{$spacing-8});
+  }
+
+  .lomui-popup--fullscreen {
+    min-width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .lomui-popup-overlay--top,
+  .lomui-popup-overlay--bottom,
+  .lomui-popup-overlay--left,
+  .lomui-popup-overlay--right {
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-4;
+  }
+
+  .lomui-popup__header,
+  .lomui-popup__footer {
+    padding: $spacing-3 $spacing-4;
+  }
+
+  .lomui-popup__content {
+    padding: $spacing-4;
+  }
+}
